@@ -1,0 +1,29 @@
+img {
+  width: 100%;
+}
+
+label,
+input {
+  display: block;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+}
+
+.text-align {
+  text-align: right;
+}
+
+.padding-left {
+  padding-left: 0.8rem;
+}
+
+.padding-top {
+  padding-top: 0.5rem;
+}
