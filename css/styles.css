@@ -1,5 +1,31 @@
+body {
+  font-family: Quicksand, sans-serif;
+}
+
 img {
+  object-fit: cover;
   width: 100%;
+  max-height: 320px;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+button,
+label {
+  font-family: Quicksand, sans-serif;
+  font-weight: 600;
+}
+
+input {
+  font-family: Quicksand, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 label,
@@ -14,16 +40,31 @@ textarea {
   display: block;
   width: 100%;
   resize: none;
+  font-family: Quicksand, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .text-align {
   text-align: right;
 }
 
-.padding-left {
-  padding-left: 0.8rem;
-}
-
 .padding-top {
   padding-top: 0.5rem;
+}
+
+.blue-bg {
+  background-color: #6b96db;
+  color: white;
+}
+
+.save-btn {
+  background-color: #6b96db;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
