@@ -32,3 +32,36 @@ $form.addEventListener('submit', function (event) {
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 });
+
+var list = document.querySelector('ul');
+list.prepend(renderEntry(data.entries[0]));
+
+function renderEntry(entry) {
+  var listItem = document.createElement('li');
+
+  var row = document.createElement('div');
+  row.setAttribute('class', 'row');
+  listItem.appendChild(row);
+
+  var imageColumn = document.createElement('div');
+  imageColumn.setAttribute('class', 'column-half');
+  row.appendChild(imageColumn);
+
+  var image = document.createElement('img');
+  image.setAttribute('src', entry.photoUrl);
+  imageColumn.appendChild(image);
+
+  var textColumn = document.createElement('div');
+  textColumn.setAttribute('class', 'column-half');
+  row.appendChild(textColumn);
+
+  var title = document.createElement('h2');
+  title.textContent = entry.title;
+  textColumn.appendChild(title);
+
+  var notes = document.createElement('p');
+  notes.textContent = entry.notes;
+  textColumn.appendChild(notes);
+
+  return listItem;
+}
