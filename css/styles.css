@@ -94,3 +94,17 @@ ul {
 li {
   list-style: none;
 }
+
+.flex {
+  display: flex;
+  align-items: baseline;
+}
+
+.entries-btn {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
