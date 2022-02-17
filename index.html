@@ -24,14 +24,14 @@
         <div class="column-full">
           <div class="flex">
             <h3>Code Journal</h3>
-            <a href="#" class="entries-btn">Entries</a>
+            <a href="#entries" class="entries-btn">Entries</a>
           </div>
         </div>
       </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form" class="hidden">
+    <div data-view="entry-form" id="entry-form">
       <div class="container">
         <form>
           <div class="row">
@@ -66,13 +66,13 @@
         </form>
       </div>
     </div>
-    <div data-view="entries">
+    <div data-view="entries" id="entries">
       <div class="container">
         <div class="row">
           <div class="column-full">
             <div class="justify-content">
               <h2>Entries</h2>
-              <a href="#" class="new-btn">NEW</a>
+              <a href="#entry-form" class="new-btn">NEW</a>
             </div>
           </div>
         </div>
