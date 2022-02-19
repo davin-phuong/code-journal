@@ -24,7 +24,7 @@
         <div class="column-full">
           <div class="flex">
             <h3>Code Journal</h3>
-            <a href="#entries" class="entries-btn">Entries</a>
+            <a href="#" class="entries-btn" id="entries-btn">Entries</a>
           </div>
         </div>
       </div>
@@ -59,20 +59,20 @@
               <label for="notes">Notes</label>
               <textarea name="notes" id="notes" rows="5" cols="100" required></textarea>
               <div class="padding-top text-align">
-                <button type="submit" class="save-btn">SAVE</button>
+                <button type="submit" class="save-btn" id="save-btn">SAVE</button>
               </div>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <div data-view="entries" id="entries">
+    <div data-view="entries" id="entries" class="hidden">
       <div class="container">
         <div class="row">
           <div class="column-full">
             <div class="justify-content">
               <h2>Entries</h2>
-              <a href="#entry-form" class="new-btn">NEW</a>
+              <a href="#" class="new-btn" id="new-btn">NEW</a>
             </div>
           </div>
         </div>
