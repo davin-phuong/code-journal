@@ -22,13 +22,16 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h3>Code Journal</h3>
+          <div class="flex">
+            <h3>Code Journal</h3>
+            <a href="#" class="entries-btn" id="entries-btn">Entries</a>
+          </div>
         </div>
       </div>
     </div>
   </header>
   <main>
-    <div data-view="entry-form">
+    <div data-view="entry-form" id="entry-form">
       <div class="container">
         <form>
           <div class="row">
@@ -56,11 +59,25 @@
               <label for="notes">Notes</label>
               <textarea name="notes" id="notes" rows="5" cols="100" required></textarea>
               <div class="padding-top text-align">
-                <button type="submit" class="save-btn">SAVE</button>
+                <button type="submit" class="save-btn" id="save-btn">SAVE</button>
               </div>
             </div>
           </div>
         </form>
+      </div>
+    </div>
+    <div data-view="entries" id="entries" class="hidden">
+      <div class="container">
+        <div class="row">
+          <div class="column-full">
+            <div class="justify-content">
+              <h2>Entries</h2>
+              <a href="#" class="new-btn" id="new-btn">NEW</a>
+            </div>
+          </div>
+        </div>
+        <ul>
+        </ul>
       </div>
     </div>
   </main>
