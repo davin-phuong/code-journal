@@ -136,5 +136,9 @@ $list.addEventListener('click', function (event) {
         data.editing = data.entries[i];
       }
     }
+    $form.elements.title.value = data.editing.title;
+    $form.elements.photoUrl.value = data.editing.photoUrl;
+    $form.elements.notes.value = data.editing.notes;
+    $img.setAttribute('src', data.editing.photoUrl);
   }
 });
