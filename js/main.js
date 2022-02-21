@@ -60,6 +60,10 @@ function renderEntry(entry) {
   title.textContent = entry.title;
   textColumn.appendChild(title);
 
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fas fa-pen');
+  title.appendChild(editIcon);
+
   var notes = document.createElement('p');
   notes.textContent = entry.notes;
   textColumn.appendChild(notes);
