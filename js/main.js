@@ -39,6 +39,7 @@ $form.addEventListener('submit', function (event) {
 
 function renderEntry(entry) {
   var listItem = document.createElement('li');
+  listItem.setAttribute('data-entry-id', entry.entryId);
 
   var row = document.createElement('div');
   row.setAttribute('class', 'row');
