@@ -118,3 +118,11 @@ if (data.view === 'entries') {
   $entries.className = 'hidden';
   data.view = 'entry-list';
 }
+
+$list.addEventListener('click', function (event) {
+  if (event.target && event.target.matches('i')) {
+    $entryForm.className = '';
+    $entries.className = 'hidden';
+    data.view = 'entry-form';
+  }
+});
