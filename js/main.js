@@ -120,9 +120,21 @@ if (data.view === 'entries') {
 }
 
 $list.addEventListener('click', function (event) {
+  var header = document.querySelector('h2');
+  header.textContent = 'Edit Entry';
+
   if (event.target && event.target.matches('i')) {
     $entryForm.className = '';
     $entries.className = 'hidden';
     data.view = 'entry-form';
+
+    var closestListItem = event.target.closest('li');
+    var currentId = closestListItem.getAttribute('data-entry-id');
+    currentId = JSON.parse(currentId);
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === currentId) {
+        data.editing = data.entries[i];
+      }
+    }
   }
 });
