@@ -18,22 +18,28 @@ $form.addEventListener('submit', function (event) {
   var photoUrl = $form.elements.photoUrl.value;
   var notes = $form.elements.notes.value;
 
-  var entryInputs = {
-    title: title,
-    photoUrl: photoUrl,
-    notes: notes
-  };
-
-  entryInputs.entryId = data.nextEntryId;
-  data.nextEntryId++;
-
-  data.entries.unshift(entryInputs);
-
+  if (data.editing === null) {
+    var entryInputs = {
+      title: title,
+      photoUrl: photoUrl,
+      notes: notes,
+      entryId: data.nextEntryId
+    };
+    data.nextEntryId++;
+    data.entries.unshift(entryInputs);
+    $list.prepend(renderEntry(entryInputs));
+  } else {
+    // data.editing = {
+    //   title: title,
+    //   photoUrl: photoUrl,
+    //   notes: notes
+    // };
+    data.editing.title = title;
+    data.editing.photoUrl = photoUrl;
+    data.editing.notes = notes;
+    data.editing.entryId = data.nextEntryId;
+  }
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-
-  data.view = 'entries';
-  $list.prepend(renderEntry(data.entries[0]));
-
   $form.reset();
 });
 
