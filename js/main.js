@@ -13,7 +13,6 @@ var $form = document.querySelector('form');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-
   var title = $form.elements.title.value;
   var photoUrl = $form.elements.photoUrl.value;
   var notes = $form.elements.notes.value;
@@ -28,17 +27,25 @@ $form.addEventListener('submit', function (event) {
     data.nextEntryId++;
     data.entries.unshift(entryInputs);
     $list.prepend(renderEntry(entryInputs));
+    data.editing = null;
+
   } else {
-    // data.editing = {
-    //   title: title,
-    //   photoUrl: photoUrl,
-    //   notes: notes
-    // };
     data.editing.title = title;
     data.editing.photoUrl = photoUrl;
     data.editing.notes = notes;
-    data.editing.entryId = data.nextEntryId;
+
+    for (var i = 0; i < data.editing.length; i++) {
+      var $listItems = document.querySelectorAll('li');
+      var editEntryId = $listItems[i].getAttribute('data-entry-id');
+      editEntryId = parseInt(editEntryId);
+
+      if (data.editing[i].entryId === editEntryId) {
+        data.editing[i] = editEntryId;
+      }
+    }
+    $closestListItem.replaceWith(renderEntry(data.editing));
   }
+  data.editing = null;
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 });
@@ -125,17 +132,18 @@ if (data.view === 'entries') {
   data.view = 'entry-list';
 }
 
+var $closestListItem = null;
+
 $list.addEventListener('click', function (event) {
   var header = document.querySelector('h2');
   header.textContent = 'Edit Entry';
-
   if (event.target && event.target.matches('i')) {
     $entryForm.className = '';
     $entries.className = 'hidden';
     data.view = 'entry-form';
 
-    var closestListItem = event.target.closest('li');
-    var currentId = closestListItem.getAttribute('data-entry-id');
+    $closestListItem = event.target.closest('li');
+    var currentId = $closestListItem.getAttribute('data-entry-id');
     currentId = JSON.parse(currentId);
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === currentId) {
