@@ -158,3 +158,10 @@ var $modal = document.querySelector('#modal');
 function showModal(event) {
   $modal.className = 'modal-background';
 }
+
+var $cancelButton = document.querySelector('.cancel-btn');
+$cancelButton.addEventListener('click', hideModal);
+
+function hideModal(event) {
+  $modal.className = 'hidden';
+}
