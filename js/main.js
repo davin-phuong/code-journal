@@ -27,22 +27,12 @@ $form.addEventListener('submit', function (event) {
     data.nextEntryId++;
     data.entries.unshift(entryInputs);
     $list.prepend(renderEntry(entryInputs));
-    data.editing = null;
 
   } else {
     data.editing.title = title;
     data.editing.photoUrl = photoUrl;
     data.editing.notes = notes;
 
-    for (var i = 0; i < data.editing.length; i++) {
-      var $listItems = document.querySelectorAll('li');
-      var editEntryId = $listItems[i].getAttribute('data-entry-id');
-      editEntryId = parseInt(editEntryId);
-
-      if (data.editing[i].entryId === editEntryId) {
-        data.editing[i] = editEntryId;
-      }
-    }
     $closestListItem.replaceWith(renderEntry(data.editing));
   }
   data.editing = null;
@@ -144,7 +134,7 @@ $list.addEventListener('click', function (event) {
 
     $closestListItem = event.target.closest('li');
     var currentId = $closestListItem.getAttribute('data-entry-id');
-    currentId = JSON.parse(currentId);
+    currentId = parseInt(currentId);
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === currentId) {
         data.editing = data.entries[i];
