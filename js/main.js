@@ -151,3 +151,10 @@ $list.addEventListener('click', function (event) {
     $img.setAttribute('src', data.editing.photoUrl);
   }
 });
+
+$deleteButton.addEventListener('click', showModal);
+var $modal = document.querySelector('#modal');
+
+function showModal(event) {
+  $modal.className = 'modal-background';
+}
