@@ -87,6 +87,7 @@ var $list = document.querySelector('ul');
 var $viewHidden = document.querySelector('.hidden');
 var $entryForm = document.querySelector('#entry-form');
 var $entries = document.querySelector('#entries');
+var $deleteButton = document.querySelector('#delete-btn');
 
 $container.addEventListener('click', function (event) {
   if (event.target.matches('.entries-btn')) {
@@ -119,6 +120,7 @@ if (data.view === 'entries') {
 } else {
   $entryForm.className = '';
   $entries.className = 'hidden';
+  $deleteButton.className = 'hidden';
   data.view = 'entry-list';
 }
 
@@ -127,6 +129,9 @@ var $closestListItem = null;
 $list.addEventListener('click', function (event) {
   var header = document.querySelector('h2');
   header.textContent = 'Edit Entry';
+
+  $deleteButton.className = '.delete-btn red-txt';
+
   if (event.target && event.target.matches('i')) {
     $entryForm.className = '';
     $entries.className = 'hidden';

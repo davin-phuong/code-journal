@@ -49,8 +49,10 @@ textarea {
   font-size: 1rem;
 }
 
-.text-align {
-  text-align: right;
+.row-reverse {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 .padding-top {
@@ -115,4 +117,9 @@ li {
 
 .align-center {
   text-align: center;
+}
+
+.delete-btn,
+.red-txt {
+  color: red;
 }
